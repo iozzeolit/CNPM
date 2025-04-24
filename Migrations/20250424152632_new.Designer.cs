@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CNPM.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20250424144741_new")]
+    [Migration("20250424152632_new")]
     partial class @new
     {
         /// <inheritdoc />

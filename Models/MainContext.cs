@@ -36,15 +36,39 @@ public class MainContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Configure entities with primary keys but tell EF not to generate values
+        
+        // DayHoc doesn't need a key as it's likely a join table
         modelBuilder.Entity<DayHoc>().HasNoKey();
-        modelBuilder.Entity<IdCounter>().HasNoKey();
-        modelBuilder.Entity<GiaSu>().HasNoKey();
-        modelBuilder.Entity<HocVien>().HasNoKey();
-        modelBuilder.Entity<HopDong>().HasNoKey();
-        modelBuilder.Entity<KhoaHoc>().HasNoKey();
+        
+        // Configure IdCounter with TableName as primary key but don't let EF generate values
+        modelBuilder.Entity<IdCounter>()
+            .HasKey(e => e.TableName);
+        
+        // Configure entities with primary keys but specify that values are not database generated
+        modelBuilder.Entity<GiaSu>()
+            .HasKey(e => e.Id)
+            .HasAnnotation("DatabaseGenerated", "None"); // Don't auto-generate keys
+            
+        modelBuilder.Entity<HocVien>()
+            .HasKey(e => e.Id)
+            .HasAnnotation("DatabaseGenerated", "None"); // Don't auto-generate keys
+            
+        modelBuilder.Entity<HopDong>()
+            .HasKey(e => e.Id)
+            .HasAnnotation("DatabaseGenerated", "None"); // Don't auto-generate keys
+            
+        modelBuilder.Entity<KhoaHoc>()
+            .HasKey(e => e.Id)
+            .HasAnnotation("DatabaseGenerated", "None"); // Don't auto-generate keys
+            
+        modelBuilder.Entity<Admin>()
+            .HasKey(e => e.Id)
+            .HasAnnotation("DatabaseGenerated", "None"); // Don't auto-generate keys
+            
+        // Time-based entities likely don't need keys or are join tables
         modelBuilder.Entity<TGBGiaSu>().HasNoKey();
         modelBuilder.Entity<TGBHocVien>().HasNoKey();
         modelBuilder.Entity<TGBHopDong>().HasNoKey();
-        modelBuilder.Entity<Admin>().HasNoKey();
     }
 }
