@@ -1,0 +1,50 @@
+static class Tbl {
+public const string DayHoc = "DayHoc";
+public const string GiaSu = "GiaSu";
+public const string HocVien = "HocVien";
+public const string HopDong = "HopDong";
+public const string IdCounter = "IdCounter";
+public const string KhoaHoc = "KhoaHoc";
+public const string TGBGiaSu = "TGBGiaSu";
+public const string TGBHocVien = "TGBHocVien";
+public const string TGBHopDong = "TGBHopDong";
+}
+static class Field {
+public const string DayHoc__IdGiaSu = "[DayHoc].[IdGiaSu]";
+public const string DayHoc__IdKhoaHoc = "[DayHoc].[IdKhoaHoc]";
+public const string GiaSu__Id = "[GiaSu].[Id]";
+public const string GiaSu__TenDangNhap = "[GiaSu].[TenDangNhap]";
+public const string GiaSu__MatKhau = "[GiaSu].[MatKhau]";
+public const string GiaSu__HoTen = "[GiaSu].[HoTen]";
+public const string GiaSu__NgaySinh = "[GiaSu].[NgaySinh]";
+public const string GiaSu__KhuVuc = "[GiaSu].[KhuVuc]";
+public const string HocVien__Id = "[HocVien].[Id]";
+public const string HocVien__TenDangNhap = "[HocVien].[TenDangNhap]";
+public const string HocVien__MatKhau = "[HocVien].[MatKhau]";
+public const string HocVien__HoTen = "[HocVien].[HoTen]";
+public const string HocVien__NgaySinh = "[HocVien].[NgaySinh]";
+public const string HocVien__DiaChi = "[HocVien].[DiaChi]";
+public const string HocVien__KhoiLop = "[HocVien].[KhoiLop]";
+public const string HopDong__Id = "[HopDong].[Id]";
+public const string HopDong__IdHocVien = "[HopDong].[IdHocVien]";
+public const string HopDong__IdGiaSu = "[HopDong].[IdGiaSu]";
+public const string HopDong__IdKhoaHoc = "[HopDong].[IdKhoaHoc]";
+public const string HopDong__TrangThai = "[HopDong].[TrangThai]";
+public const string IdCounter__TableName = "[IdCounter].[TableName]";
+public const string IdCounter__CurrentId = "[IdCounter].[CurrentId]";
+public const string KhoaHoc__Id = "[KhoaHoc].[Id]";
+public const string KhoaHoc__TenKhoaHoc = "[KhoaHoc].[TenKhoaHoc]";
+public const string KhoaHoc__TenMonHoc = "[KhoaHoc].[TenMonHoc]";
+public const string KhoaHoc__KhoiLop = "[KhoaHoc].[KhoiLop]";
+public const string KhoaHoc__SoBuoi = "[KhoaHoc].[SoBuoi]";
+public const string KhoaHoc__HocPhi = "[KhoaHoc].[HocPhi]";
+public const string TGBGiaSu__IdGiaSu = "[TGBGiaSu].[IdGiaSu]";
+public const string TGBGiaSu__TDiemBatDau = "[TGBGiaSu].[TDiemBatDau]";
+public const string TGBGiaSu__TDiemKetThuc = "[TGBGiaSu].[TDiemKetThuc]";
+public const string TGBHocVien__IdHocVien = "[TGBHocVien].[IdHocVien]";
+public const string TGBHocVien__TDiemBatDau = "[TGBHocVien].[TDiemBatDau]";
+public const string TGBHocVien__TDiemKetThuc = "[TGBHocVien].[TDiemKetThuc]";
+public const string TGBHopDong__IdHopDong = "[TGBHopDong].[IdHopDong]";
+public const string TGBHopDong__TDiemBatDau = "[TGBHopDong].[TDiemBatDau]";
+public const string TGBHopDong__TDiemKetThuc = "[TGBHopDong].[TDiemKetThuc]";
+}
