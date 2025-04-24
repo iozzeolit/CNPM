@@ -13,6 +13,7 @@ public class MainContext : DbContext
     public required DbSet<TGBGiaSu> TGBGiaSu { get; set; } = null!;
     public required DbSet<TGBHocVien> TGBHocVien { get; set; } = null!;
     public required DbSet<TGBHopDong> TGBHopDong { get; set; } = null!;
+    public required DbSet<Admin> Admin { get; set; } = null!;
 
 
     public MainContext() { }
@@ -44,5 +45,6 @@ public class MainContext : DbContext
         modelBuilder.Entity<TGBGiaSu>().HasNoKey();
         modelBuilder.Entity<TGBHocVien>().HasNoKey();
         modelBuilder.Entity<TGBHopDong>().HasNoKey();
+        modelBuilder.Entity<Admin>().HasNoKey();
     }
 }

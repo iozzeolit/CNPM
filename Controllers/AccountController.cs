@@ -35,7 +35,7 @@ public class AccountController : Controller
             bool isAuthenticated = false;
             ClaimsIdentity identity = null;
 
-            // Check for tutor credentials first
+            // Check for tutor credentials
             GiaSu? giaSu = await _context.GiaSu
                 .FirstOrDefaultAsync(x => x.TenDangNhap == model.TenDangNhap);
 
@@ -51,9 +51,10 @@ public class AccountController : Controller
                 
                 isAuthenticated = true;
             }
-            else
+
+            // Check for student credentials if not already authenticated
+            if (!isAuthenticated)
             {
-                // If not a tutor, check if user is a student
                 HocVien? hocVien = await _context.HocVien
                     .FirstOrDefaultAsync(x => x.TenDangNhap == model.TenDangNhap);
 
@@ -65,6 +66,26 @@ public class AccountController : Controller
                         new Claim(ClaimTypes.Name, hocVien.HoTen),
                         new Claim(ClaimTypes.NameIdentifier, hocVien.Id.ToString()),
                         new Claim(ClaimTypes.Role, "HocVien")
+                    }, CookieAuthenticationDefaults.AuthenticationScheme);
+                    
+                    isAuthenticated = true;
+                }
+            }
+
+            // Check for admin credentials if not already authenticated
+            if (!isAuthenticated)
+            {
+                Admin? admin = await _context.Admin
+                    .FirstOrDefaultAsync(x => x.TenDangNhap == model.TenDangNhap);
+
+                if (admin != null && PasswordHasher.VerifyPassword(model.MatKhau, admin.MatKhau))
+                {
+                    // User is an admin
+                    identity = new ClaimsIdentity(new[]
+                    {
+                        new Claim(ClaimTypes.NameIdentifier, admin.Id.ToString()),
+                        new Claim(ClaimTypes.Role, "Admin"),
+                        new Claim(ClaimTypes.Name, "Quản trị viên")
                     }, CookieAuthenticationDefaults.AuthenticationScheme);
                     
                     isAuthenticated = true;

@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CNPM.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20250424135326_new")]
+    [Migration("20250424144741_new")]
     partial class @new
     {
         /// <inheritdoc />
@@ -23,6 +23,24 @@ namespace CNPM.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Cnpm.Models.Object.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("TenDangNhap")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.ToTable("Admin");
+                });
 
             modelBuilder.Entity("Cnpm.Models.Object.DayHoc", b =>
                 {

@@ -21,6 +21,24 @@ namespace CNPM.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Cnpm.Models.Object.Admin", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MatKhau")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("TenDangNhap")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.ToTable("Admin");
+                });
+
             modelBuilder.Entity("Cnpm.Models.Object.DayHoc", b =>
                 {
                     b.Property<int>("IdGiaSu")
